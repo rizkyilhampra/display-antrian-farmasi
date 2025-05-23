@@ -1,0 +1,13 @@
+{
+    "name": "it-rspi/display-antrian-farmasi",
+    "description": "Pharmacy Queue Display Display System",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

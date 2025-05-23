@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: display-antrian-farmasi
+    ports:
+      - "8089:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      APP_NAME: ${APP_NAME}
+      HOSPITAL_ICON: ${HOSPITAL_ICON}
+      BACKGROUND_IMAGE: ${BACKGROUND_IMAGE}
+      APACHE_LOG_DIR: /var/log/apache2
+    restart: unless-stopped
+    networks:
+      - mariadb-rspi-database-network
+
+networks:
+  mariadb-rspi-database-network:
+    external: true
